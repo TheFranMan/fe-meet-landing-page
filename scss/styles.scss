@@ -5,7 +5,153 @@ $deluge: hsl(268, 34%, 53%);
 $malibu: hsl(192, 90%, 77%);
 $mauve: hsl(268, 100%, 86%);
 $alabaster: hsl(0, 0%, 98%);
+$white: hsl(0, 0%, 100%);
+
+$fz-reg: 1rem;
+$fz-med: 1.125rem;
+$fz-large: 2.5rem;
+$fz-xlarge: 4rem;
+
+$black: 900;
+$medium: 500;
+
+%font-overline {
+    font-size: $fz-reg;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 26px;
+    font-weight: $black;
+}
+
+%font-med {
+    font-size: $fz-med;
+    line-height: 26px;
+    font-weight: $medium;
+}
+
+%font-large {
+    font-size: $fz-large;
+    line-height: 44px;
+    font-weight: $black;
+}
+
+%font-xlarge {
+    font-size: $fz-xlarge;
+    line-height: 64px;
+    font-weight: $black;
+}
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
 
 body {
+    min-height: 100%;
     font-family: 'Red Hat Display', sans-serif;
+    font-size: $fz-reg;
+    font-weight: $black;
+    text-align: center;
+    line-height: 26px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+main {
+    header {
+        position: relative;
+        margin-bottom: 250px;
+
+        .logo {
+            margin: 3em auto 3.375em;
+        }
+
+        .hero {
+            margin-bottom: 3em;
+            transform: scale(1.1);
+        }
+
+        .description {
+            padding: 0 1.5em;
+
+            &__title {
+                @extend %font-large;
+                color: $ebony-clay;
+                margin-bottom: .6em;
+            }
+
+            &__text {
+                color: $manatee;
+                margin-bottom: 1.5em;
+                font-weight: $medium;
+            }
+
+            &__links {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                & > * {
+                    color: $white;
+                    border: none;
+                    outline: none;
+                    border-radius: 20px;
+                    padding: 1em 2.2em;
+                    font-size: $fz-reg;
+                    font-weight: 900;
+                    width: max-content;
+
+                    .highlight {
+                        color: $malibu;
+                    }
+                }
+
+                &--download {
+                    background-color: $hippie-blue;
+                    margin-bottom: 1em;
+                }
+
+                &--what {
+                    background-color: $deluge;
+                }
+            }
+        }
+
+        &::before {
+            $diameter: 56px;
+
+            content: "01";
+            position: absolute;
+            bottom: -205px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: $diameter;
+            height: $diameter;
+            border: 1px solid $manatee;
+            color: $manatee;
+            border-radius: 50%;
+            line-height: 55px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -150px;
+            left: 50%;
+            height: 84px;
+            width: 1px;
+            transform: translateX(-50%);
+            background-color: $manatee;
+        }
+    }
 }

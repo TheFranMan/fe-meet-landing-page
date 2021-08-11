@@ -1,5 +1,105 @@
+main header .description__title {
+  font-size: 2.5rem;
+  line-height: 44px;
+  font-weight: 900;
+}
+
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
   font-family: "Red Hat Display", sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  text-align: center;
+  line-height: 26px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+main header {
+  position: relative;
+  margin-bottom: 250px;
+}
+main header .logo {
+  margin: 3em auto 3.375em;
+}
+main header .hero {
+  margin-bottom: 3em;
+  transform: scale(1.1);
+}
+main header .description {
+  padding: 0 1.5em;
+}
+main header .description__title {
+  color: #28283e;
+  margin-bottom: 0.6em;
+}
+main header .description__text {
+  color: #86869c;
+  margin-bottom: 1.5em;
+  font-weight: 500;
+}
+main header .description__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main header .description__links > * {
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  padding: 1em 2.2em;
+  font-size: 1rem;
+  font-weight: 900;
+  width: max-content;
+}
+main header .description__links > * .highlight {
+  color: #90e4f9;
+}
+main header .description__links--download {
+  background-color: #4d96a8;
+  margin-bottom: 1em;
+}
+main header .description__links--what {
+  background-color: #845eb0;
+}
+main header::before {
+  content: "01";
+  position: absolute;
+  bottom: -205px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 56px;
+  height: 56px;
+  border: 1px solid #86869c;
+  color: #86869c;
+  border-radius: 50%;
+  line-height: 55px;
+}
+main header::after {
+  content: "";
+  position: absolute;
+  bottom: -150px;
+  left: 50%;
+  height: 84px;
+  width: 1px;
+  transform: translateX(-50%);
+  background-color: #86869c;
 }
 
 /*# sourceMappingURL=styles.css.map */
