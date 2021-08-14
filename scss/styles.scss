@@ -1,3 +1,4 @@
+$hippie-blue-transparent: hsla(192, 37%, 48%, .8);
 $hippie-blue: hsl(192, 37%, 48%);
 $ebony-clay: hsl(240, 21%, 20%);
 $manatee: hsl(240, 10%, 57%);
@@ -9,6 +10,7 @@ $white: hsl(0, 0%, 100%);
 
 $fz-reg: 1rem;
 $fz-med: 1.125rem;
+$fz-xmed: 2rem;
 $fz-large: 2.5rem;
 $fz-xlarge: 4rem;
 
@@ -23,7 +25,19 @@ $medium: 500;
     font-weight: $black;
 }
 
+%font-reg {
+    font-size: $fz-reg;
+    line-height: 26px;
+    font-weight: $medium;
+}
+
 %font-med {
+    font-size: $fz-xmed;
+    line-height: 36px;
+    font-weight: $black;
+}
+
+%font-xmed {
     font-size: $fz-med;
     line-height: 26px;
     font-weight: $medium;
@@ -39,6 +53,17 @@ $medium: 500;
     font-size: $fz-xlarge;
     line-height: 64px;
     font-weight: $black;
+}
+
+%button {
+    @extend %font-reg;
+    color: $white;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    padding: 1em 2.2em;
+    font-weight: 900;
+    width: max-content;
 }
 
 *,
@@ -70,7 +95,7 @@ img {
 main {
     header {
         position: relative;
-        margin-bottom: 250px;
+        margin-bottom: 16.56em;
 
         .logo {
             margin: 3em auto 3.375em;
@@ -102,14 +127,7 @@ main {
                 align-items: center;
 
                 & > * {
-                    color: $white;
-                    border: none;
-                    outline: none;
-                    border-radius: 20px;
-                    padding: 1em 2.2em;
-                    font-size: $fz-reg;
-                    font-weight: 900;
-                    width: max-content;
+                    @extend %button;
 
                     .highlight {
                         color: $malibu;
@@ -132,7 +150,7 @@ main {
 
             content: "01";
             position: absolute;
-            bottom: -205px;
+            bottom: -203px;
             left: 50%;
             transform: translateX(-50%);
             width: $diameter;
@@ -146,7 +164,105 @@ main {
         &::after {
             content: "";
             position: absolute;
-            bottom: -150px;
+            bottom: -64px;
+            left: 50%;
+            height: 84px;
+            width: 1px;
+            transform: translate(-50%, 100%);
+            background-color: $manatee;
+        }
+    }
+
+    .use {
+        padding: 0 1.5em;
+        margin-bottom: 12em;
+
+        &__img-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 4em;
+
+            img {
+                width: 47%;
+                border-radius: 10px;
+
+                &:nth-child(-n+2) {
+                    margin-bottom: 6%;
+                }
+            }
+        }
+
+        .overline {
+            @extend %font-overline;
+            color: $hippie-blue;
+            margin-bottom: 1.3em;
+        }
+
+        &__heading {
+            @extend %font-med;
+            margin-bottom: 1.3em;
+        }
+
+        &__info {
+            @extend %font-reg;
+            color: $manatee;
+        }
+    }
+
+    .footer {
+        position: relative;
+        min-height: 428px;
+        padding: 0 1.5em;
+        color: $white;
+        background-size:cover;
+        background-image: linear-gradient(
+            $hippie-blue-transparent,
+            $hippie-blue-transparent),
+            url(../images/mobile/image-footer.jpg);
+
+        &__heading {
+            @extend %font-med;
+            padding-top: 3em;
+        }
+
+        &__text {
+            @extend %font-reg;
+            margin-top: 1.5em;
+        }
+
+        &__button {
+            @extend %button;
+            background-color: $deluge;
+            margin: 2em 0 4em;
+
+            .highlight {
+                color: $mauve;
+            }
+        }
+
+        &::before {
+            $diameter: 56px;
+
+            content: "02";
+            top: 0;
+            background-color: $white;
+            transform: translate(-50%, -50%);
+            position: absolute;
+            left: 50%;
+            width: $diameter;
+            height: $diameter;
+            border: 1px solid $manatee;
+            color: $manatee;
+            border-radius: 50%;
+            line-height: 55px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            top: -111px;
             left: 50%;
             height: 84px;
             width: 1px;
