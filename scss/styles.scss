@@ -18,6 +18,7 @@ $black: 900;
 $medium: 500;
 
 $tablet: 768px;
+$desktop: 1440px;
 
 %font-overline {
     font-size: $fz-reg;
@@ -66,6 +67,10 @@ $tablet: 768px;
     padding: 1em 2.2em;
     font-weight: 900;
     width: max-content;
+
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 *,
@@ -95,9 +100,18 @@ img {
 }
 
 main {
+    @media (min-width: $desktop) {
+        width: 1440px;
+        margin: 0 auto;
+    }
+
     header {
         position: relative;
         margin-bottom: 16.56em;
+
+        @media (min-width: $desktop) {
+            margin-bottom: 19.625em;
+        }
 
         .logo {
             margin: 3em auto 3.375em;
@@ -105,15 +119,43 @@ main {
             @media (min-width: $tablet) {
                 margin-bottom: 5em;
             }
+
+            @media (min-width: $desktop) {
+                margin-top: 5em;
+            }
         }
 
         .hero {
+            margin: 0 auto;
             margin-bottom: 3em;
             transform: scale(1.1);
+
+            @media (min-width: $desktop) {
+                margin-top: 5em;
+            }
+
+            @media (min-width: $desktop) {
+                display: none;
+            }
         }
 
         .description {
             padding: 0 1.5em;
+
+            @media (min-width: $desktop) {
+                height: 358px;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                background-image:
+                    url("../images/desktop/image-hero-left.png"),
+                    url("../images/desktop/image-hero-right.png");
+                background-position:
+                    -3% 0%,
+                    103% 0%;
+                background-repeat: no-repeat;
+            }
 
             &__title {
                 @extend %font-large;
@@ -126,6 +168,14 @@ main {
                     padding: 0 3em;
                     margin-top: 2em;
                 }
+
+                @media (min-width: $desktop) {
+                    font-size: $fz-xlarge;
+                    line-height: 64px;
+                    font-weight: $black;
+                    margin-top: .6em;
+                    margin-bottom: 0;
+                }
             }
 
             &__text {
@@ -136,6 +186,14 @@ main {
                 @media (min-width: $tablet) {
                     padding: 0 8em;
                     margin-bottom: 2em;
+                }
+
+                @media (min-width: $desktop) {
+                    margin: 0 auto;
+                    width: 850px;
+                    font-size: $fz-med;
+                    line-height: 26px;
+                    font-weight: $medium;
                 }
             }
 
@@ -155,11 +213,21 @@ main {
                     .highlight {
                         color: $malibu;
                     }
+
+                    &:hover {
+                        .highlight {
+                            color: $hippie-blue;
+                        }
+                    }
                 }
 
                 &--download {
                     background-color: $hippie-blue;
                     margin-bottom: 1em;
+
+                    &:hover{
+                        background-color: $malibu;
+                    }
 
                     @media (min-width: $tablet) {
                         margin-bottom: 0;
@@ -169,6 +237,10 @@ main {
 
                 &--what {
                     background-color: $deluge;
+
+                    &:hover {
+                        background-color: $mauve;
+                    }
                 }
             }
         }
@@ -187,6 +259,10 @@ main {
             color: $manatee;
             border-radius: 50%;
             line-height: 55px;
+
+            @media (min-width: $desktop) {
+                bottom: -239px;
+            }
         }
 
         &::after {
@@ -198,6 +274,10 @@ main {
             width: 1px;
             transform: translate(-50%, 100%);
             background-color: $manatee;
+
+            @media (min-width: $desktop) {
+                bottom: -100px;
+            }
         }
     }
 
@@ -215,6 +295,10 @@ main {
             justify-content: space-between;
             margin-bottom: 4em;
 
+            @media (min-width: $desktop) {
+                justify-content: center;
+            }
+
             img {
                 width: 47%;
                 border-radius: 10px;
@@ -229,6 +313,12 @@ main {
                     @media (min-width: $tablet) {
                         margin-bottom: 0;
                     }
+                }
+
+                @media (min-width: $desktop) {
+                    width: 255px;
+                    height: 242px;
+                    margin-right: 1.875em;
                 }
             }
         }
@@ -248,11 +338,23 @@ main {
                 line-height: 44px;
                 padding: 0 3em;
             }
+
+            @media (min-width: $desktop) {
+                width: 700px;
+                margin: 0 auto;
+                margin-bottom: 1em;
+            }
         }
 
         &__info {
             @extend %font-reg;
             color: $manatee;
+
+            @media (min-width: $desktop) {
+                width: 700px;
+                margin: 0 auto;
+                font-size: $fz-med;
+            }
         }
     }
 
@@ -272,7 +374,19 @@ main {
                 $hippie-blue-transparent,
                 $hippie-blue-transparent),
                 url(../images/tablet/image-footer.jpg);
-                padding: 0 6em;
+            padding: 0 6em;
+        }
+
+        @media (min-width: $desktop) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: left;
+            background-image: linear-gradient(
+                $hippie-blue-transparent,
+                $hippie-blue-transparent),
+                url(../images/desktop/image-footer.jpg);
+            min-height: 308px;
         }
 
         &__heading {
@@ -285,11 +399,22 @@ main {
                 padding-left: 3em;
                 padding-right: 3em;
             }
+
+            @media (min-width: $desktop) {
+                padding: 0;
+                width: 350px;
+            }
         }
 
         &__text {
             @extend %font-reg;
             margin-top: 1.5em;
+
+            @media (min-width: $desktop) {
+                margin: 0;
+                width: 400px;
+                font-size: $fz-med;
+            }
         }
 
         &__button {
@@ -299,6 +424,14 @@ main {
 
             .highlight {
                 color: $mauve;
+            }
+
+            &:hover {
+                background-color: $mauve;
+            }
+
+            @media (min-width: $desktop) {
+                margin: 0;
             }
         }
 
@@ -317,6 +450,7 @@ main {
             color: $manatee;
             border-radius: 50%;
             line-height: 55px;
+            text-align: center;
         }
 
         &::after {
